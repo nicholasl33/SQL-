@@ -1,0 +1,41 @@
+--Create videos table.
+
+CREATE TABLE Videos(
+ 					videoID int NOT null,
+ 					title varchar(255),
+ 					duration_in_minutes int,
+ 					url varchar(255),
+ 					PRIMARY KEY (VideoID)
+ 					);
+					
+-- SELECT * FROM Videos;
+
+-- -- Create Reviewers table.
+
+CREATE TABLE Reviewers (
+						user_id int NOT NULL,
+						f_name varchar(255),
+ 						l_name varchar (255),
+ 						rating int,
+ 						review varchar(255),
+ 						VideoID int NOT NULL,
+ 						PRIMARY KEY (user_id)
+						);
+						
+-- SELECT * FROM Reviewers;
+
+--populating Videos table
+INSERT INTO Videos VALUES (1, '50-Hour Prime Rib', 16, 'https://www.youtube.com/watch?v=c5xnQuz1ql8');
+INSERT INTO Videos VALUES (2, '3 Ways We Use Mochi', 20, 'https://www.youtube.com/watch?v=my1q2kZVjOk');
+INSERT INTO Videos VALUES (3, '3 Ways We Ribeye', 24, 'https://www.youtube.com/watch?v=2rW1l-HRXBU&t=536s');
+
+-- populating Reviewers table
+INSERT INTO Reviewers VALUES (1, 'Bob','Row',5,'Amazing video!!',1);
+INSERT INTO Reviewers VALUES (2, 'Ashley','Asher', 4, 'Wow, this is great.',2);
+INSERT INTO Reviewers VALUES (3, 'Robert','Felix',3, 'This is pretty cool!', 3);
+INSERT INTO Reviewers VALUES (4, 'Derek','Rye',2, 'Not that interesting...', 1);
+INSERT INTO Reviewers VALUES (5, 'Sylvia','Tish',5, 'Cool video!', 2);
+
+select * from Videos as v
+JOIN Reviewers as r
+ON v.videoid=r.videoid;
